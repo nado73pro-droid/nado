@@ -1,7 +1,7 @@
-/* 👇 여기가 핵심! 일반 light.css 대신 '고대비(high_contrast)' 테마를 불러옵니다 */
+/* 1. 기본 디자인 가져오기: 검정 테두리(High Contrast) 버전 */
 @import url("https://giscus.app/themes/light_high_contrast.css");
 
-/* 2. 숨김 코드는 그대로 유지 */
+/* 2. 숨김 처리 (댓글 0개, 반응 이모지 등) */
 .gsc-reactions-count, .gsc-timeline {
     display: none !important;
 }
@@ -10,9 +10,7 @@
     display: none !important;
 }
 
-/* (선택사항) 혹시 입력창 테두리를 더 진하게 하고 싶다면 아래 코드도 추가 가능 */
-/*
+/* (선택) 입력창 테두리 미세 조정 */
 .gsc-comment-box {
-    border: 1px solid #000 !important;
+    border-color: #000 !important;
 }
-*/
