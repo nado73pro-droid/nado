@@ -1,1 +1,81 @@
+/* 기본 레이아웃 (PC 기준) */
+.container {
+    display: flex; /* 좌우 배치 */
+    max-width: 1280px;
+    margin: 0 auto;
+}
 
+.sidebar {
+    width: 280px; /* 네이버 블로그 사이드바 표준 폭 */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 1px solid #eee;
+    padding: 20px;
+}
+
+.content-area {
+    flex: 1; /* 나머지 영역 모두 차지 */
+    padding: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 그리드 */
+    gap: 20px;
+}
+
+.mobile-header, .mobile-dock { display: none; } /* PC에서 숨김 */
+
+/* =========================================
+   Mobile 최적화 (768px 이하 태블릿/모바일) 
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        display: block; /* 세로 배치로 변경 */
+    }
+
+    .sidebar {
+        /* 사이드바를 햄버거 메뉴로 숨김 */
+        position: fixed;
+        left: -100%; /* 화면 밖으로 이동 */
+        width: 80%;
+        background: #fff;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        border-right: none;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    
+    .sidebar.active { left: 0; } /* JS로 클래스 토글 시 등장 */
+
+    .content-area {
+        padding: 15px;
+        padding-top: 60px; /* 헤더 높이만큼 여백 */
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1열(카드형)로 변경 */
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 999;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .mobile-dock {
+        display: flex; /* 하단 고정 메뉴 표시 */
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        /* ...스타일링... */
+    }
+}
