@@ -1,1 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NadoPro 블로그형 홈페이지</title>
 
+  <style>
+    /* ===== 기본 설정 ===== */
+    body {
+      margin: 0;
+      font-family: "Pretendard", sans-serif;
+      background: #f5f6f7;
+      color: #222;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; border-radius: 6px; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    header .logo {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    header nav a {
+      margin-left: 18px;
+      font-size: 15px;
+      color: #444;
+    }
+
+    /* ===== LAYOUT ===== */
+    main {
+      display: grid;
+      grid-template-columns: 240px 1fr 260px;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* ===== LEFT SIDEBAR ===== */
+    .sidebar {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      height: fit-content;
+    }
+    .profile-box {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .profile-box img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .profile-box h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .profile-box p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .category-menu li {
+      list-style: none;
+      margin-bottom: 12px;
+      font-size: 15px;
+      padding: 6px 0;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.15s;
+    }
+    .category-menu li:hover {
+      background: #f2f2f2;
+      padding-left: 4px;
+    }
+
+    /* ===== CONTENT AREA ===== */
+    .content-area {
+      min-height: 500px;
+    }
+    .content-area h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .post-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .post-card:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    }
+
+    .post-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+    .post-desc {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+    }
+    .post-meta {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #999;
+    }
+
+    /* ===== RIGHT WIDGET AREA ===== */
+    .extra {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      height: fit-content;
+    }
+    .extra h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .extra ul li {
+      list-style: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #444;
+      cursor: pointer;
+    }
+    .extra ul li:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+      padding: 30px 0;
+      margin-top: 40px;
+    }
+
+    /* ===== 반응형 ===== */
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .sidebar,
+      .extra {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">NadoPro</div>
+    <nav>
+      <a href="#">홈</a>
+      <a href="#">카테고리</a>
+      <a href="#">소개</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="profile-box">
+        <img src="https://via.placeholder.com/90" alt="profile">
+        <h3>NadoPro</h3>
+        <p>특허 & 브랜드 전략 콘텐츠</p>
+      </div>
+
+      <ul class="category-menu">
+        <li>특허출원 to 등록</li>
+        <li>특허권리 침해대응 전략</li>
+        <li>지식재산권 기본 구조</li>
+        <li>브랜드 네이밍 전략</li>
+        <li>IP 분쟁·판례</li>
+      </ul>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <section class="content-area">
+      <h2>Latest Posts</h2>
+
+      <!-- 게시글 카드 샘플 -->
+      <div class="post-card">
+        <img src="https://via.placeholder.com/900x300" alt="">
+        <div class="post-title">특허출원 전체 프로세스 한눈에 보기</div>
+        <div class="post-desc">
+          처음 특허를 준비할 때 반드시 알아야 할 핵심 절차를 정리한 가이드입니다.
+        </div>
+        <div class="post-meta">2025.01.02 • 특허출원 to 등록</div>
+      </div>
+
+      <div class="post-card">
+        <img src="https://via.placeholder.com/900x300" alt="">
+        <div class="post-title">브랜드 네이밍, 어떻게 만들어야 할까?</div>
+        <div class="post-desc">
+          좋은 브랜드는 기억을 설계하는 과정에서부터 시작됩니다.
+        </div>
+        <div class="post-meta">2025.01.01 • 네이밍 전략</div>
+      </div>
+    </section>
+
+    <!-- RIGHT WIDGET -->
+    <aside class="extra">
+      <h3>인기글</h3>
+      <ul>
+        <li>특허 vs 실용신안 차이</li>
+        <li>상표 출원 전 체크리스트</li>
+        <li>기업 IP 전략의 3가지 핵심</li>
+        <li>브랜드 네임 실패 사례</li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 NadoPro. All rights reserved.
+  </footer>
+
+</body>
+</html>
